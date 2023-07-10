@@ -9,8 +9,8 @@ exports.homepage = async (req, res) => {
 
     const messages = await req.consumeFlash('info');
     const locals = {
-      title: 'NodeJs',
-      description: 'Free NodeJs User Management System'
+      title: 'User Management System - Homepage',
+      description: 'POC created in NodeJs for User Management System'
     }
 
     let perPage = 12;
@@ -57,7 +57,7 @@ exports.homepage = async (req, res) => {
 exports.about = async (req, res) => {
     const locals = {
       title: 'About',
-      description: 'Free NodeJs User Management System'
+      description: 'NodeJs User Management System'
     }
 
     try {
@@ -78,8 +78,8 @@ exports.about = async (req, res) => {
  */
 exports.addCustomer = async (req, res) => {
   const locals = {
-    title: "Add New Customer - NodeJs",
-    description: "Free NodeJs User Management System",
+    title: "Add New User - NodeJs",
+    description: "NodeJs User Management System",
   };
 
   res.render("customer/add", locals);
@@ -102,7 +102,7 @@ exports.postCustomer = async (req, res) => {
 
   try {
     await Customer.create(newCustomer);
-    await req.flash("info", "New customer has been added.");
+    await req.flash("info", "New user has been added.");
 
     res.redirect("/");
   } catch (error) {
@@ -121,8 +121,8 @@ exports.view = async (req, res) => {
     const customer = await Customer.findOne({ _id: req.params.id })
 
     const locals = {
-      title: "View Customer Data",
-      description: "Free NodeJs User Management System",
+      title: "View User Data",
+      description: "NodeJs User Management System",
     };
 
     res.render('customer/view', {
@@ -148,7 +148,7 @@ exports.edit = async (req, res) => {
     const customer = await Customer.findOne({ _id: req.params.id })
 
     const locals = {
-      title: "Edit Customer Data",
+      title: "Edit User Data",
       description: "Free NodeJs User Management System",
     };
 
@@ -210,8 +210,8 @@ exports.deleteCustomer = async (req, res) => {
 exports.searchCustomers = async (req, res) => {
 
   const locals = {
-    title: "Search Customer Data",
-    description: "Free NodeJs User Management System",
+    title: "Search User Data",
+    description: "NodeJs User Management System",
   };
 
   try {
